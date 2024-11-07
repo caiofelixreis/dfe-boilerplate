@@ -15,6 +15,10 @@ export class Context {
   }
 
   static getStore(): any {
-    return Context.asyncLocalStorage.getStore();
+    return Context.asyncLocalStorage.getStore() || {};
+  }
+
+  static updateStore(store: any) {
+    return Context.asyncLocalStorage.enterWith(store);
   }
 }
