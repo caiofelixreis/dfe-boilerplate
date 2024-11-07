@@ -1,5 +1,5 @@
 import { Communicator } from "..";
-import { SefazCommunicatorOptions, communicate } from "sefaz-communicator";
+import { SefazCommunicatorOptions, communicate as sefazCommunicate } from "sefaz-communicator";
 import { getOutboundSoapClient } from "./customClient";
 
 export interface ISoapMessage {
@@ -20,7 +20,7 @@ export abstract class SoapCommunicator extends Communicator {
   public async communicate(data: any): Promise<unknown> {
     const metaData: ISefazCommunicator = this.getMetaData(data);
 
-    const response = await communicate(
+    const response = await sefazCommunicate(
       metaData.url,
       metaData.methodName,
       metaData.message,
@@ -46,9 +46,6 @@ export abstract class SoapCommunicator extends Communicator {
   }
 
   protected abstract getUrl(): string;
-  protected abstract getHomUrl(): string;
-  protected abstract getProdUrl(): string;
   protected abstract getMethodName(): string;
-  protected abstract getMessage(): ISoapMessage;
 }
 
