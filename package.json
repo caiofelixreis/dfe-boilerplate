@@ -1,0 +1,21 @@
+{
+  "name": "cte-simp-service",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "npx tsx watch src/*.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "@types/express": "^5.0.0",
+    "tsx": "^4.19.2"
+  },
+  "dependencies": {
+    "express": "^4.21.1",
+    "express-validator": "^7.2.0"
+  }
+}
