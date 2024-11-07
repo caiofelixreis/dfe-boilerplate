@@ -16,6 +16,8 @@ abstract class DFeSoapCommunicator extends SoapCommunicator {
       return this.getHomMethodName();
     }
   
+    protected abstract getHomUrl(): string;
+    protected abstract getProdUrl(): string;
     protected abstract getHomMethodName(): string;
     protected abstract getProdMethodName(): string;
   }
