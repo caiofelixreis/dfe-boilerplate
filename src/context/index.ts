@@ -4,6 +4,7 @@ export interface IBaseContext {
   request_id: string;
   init_time: Date;
   tenantid: string;
+  isToCommunicateProd?: boolean
 }
 
 export class Context {
