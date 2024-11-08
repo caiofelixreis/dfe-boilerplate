@@ -1,12 +1,14 @@
 import { Communicator } from "../communicators";
+import { XmlBuilder } from "@seidor/lib-outbound-common/dist/System/Builders/Refactor/XML";
+import { Parser } from "../parsers";
 
 abstract class Provider<I, O> {
   abstract name: string;
 
   abstract schema: {
-    builder: any;
+    builder: XmlBuilder;
     communicator: Communicator;
-    parser: any;
+    parser: Parser;
   };
 
   abstract build(input: I);
@@ -16,7 +18,7 @@ abstract class Provider<I, O> {
 
 export class DFeEventProvider extends Provider<string, number> {
   name = "DFeEventProvider";
-  
+
   schema: { builder: any; communicator: Communicator; parser: any };
 
   build(input: string) {
